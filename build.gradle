@@ -1,11 +1,13 @@
 plugins {
     id 'java'
+    id 'io.qameta.allure' version '2.11.2'
 }
 
 group = 'org.example'
 version = '1.0-SNAPSHOT'
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
@@ -29,6 +31,12 @@ dependencies {
     testImplementation "io.qameta.allure:allure-selenide:${allureSelenideVersion}"
     testImplementation "io.qameta.allure:allure-cucumber7-jvm:${allureCucumberVersion}"
     testImplementation "org.slf4j:slf4j-simple:${slf4jVersion}"
+}
+
+allure {
+    useCucumberJVM {
+        version = "${allureCucumberVersion}"
+    }
 }
 
 test {
