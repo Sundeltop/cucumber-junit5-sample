@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+def junit5Version = '5.9.2'
+def junitSuiteVersion = '1.9.3'
+def selenideVersion = '6.13.1'
+def cucumberVersion = '7.12.0'
+def gherkinVersion = '26.2.0'
+def allureSelenideVersion = '2.21.0'
+def allureCucumberVersion = '2.22.0'
+def slf4jVersion = '2.0.7'
+
+dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junit5Version}"
+    testImplementation "org.junit.platform:junit-platform-suite:${junitSuiteVersion}"
+    testImplementation "com.codeborne:selenide:${selenideVersion}"
+    testImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
+    testImplementation "io.cucumber:cucumber-java8:${cucumberVersion}"
+    testImplementation "io.cucumber:cucumber-junit-platform-engine:${cucumberVersion}"
+    testImplementation "io.cucumber:gherkin:${gherkinVersion}"
+    testImplementation "io.qameta.allure:allure-selenide:${allureSelenideVersion}"
+    testImplementation "io.qameta.allure:allure-cucumber7-jvm:${allureCucumberVersion}"
+    testImplementation "org.slf4j:slf4j-simple:${slf4jVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}
