@@ -41,4 +41,5 @@ allure {
 
 test {
     useJUnitPlatform()
+    systemProperties System.getProperties()
 }
